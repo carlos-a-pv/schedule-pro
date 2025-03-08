@@ -35,14 +35,13 @@ public class Usuario {
 
     //CONSTRUCTOR BUILDER
     @Builder
-    public Usuario (String cedula,String nombre,String apellido,String telefono,String email, String password  ,Departamento departamento, Cargo cargo,LocalDateTime fechaContratacion) {
+    public Usuario (String cedula,String nombre,String apellido,String telefono,String email ,Departamento departamento, Cargo cargo,LocalDateTime fechaContratacion) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.email = email;
         this.telefono = telefono;
-        this.password = password;
         this.fechaContratacion = fechaContratacion;
         this.departamento = departamento;
         this.cargo = cargo;
