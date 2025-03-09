@@ -1,19 +1,21 @@
 package co.edu.uniquindio.ShedulePro.services.implementaciones;
 
 import co.edu.uniquindio.ShedulePro.Config.JWTUtils;
-import co.edu.uniquindio.ShedulePro.dto.LoginDTO;
-import co.edu.uniquindio.ShedulePro.dto.TokenDTO;
+import co.edu.uniquindio.ShedulePro.dto.usuario.LoginDTO;
+import co.edu.uniquindio.ShedulePro.dto.jws.TokenDTO;
 import co.edu.uniquindio.ShedulePro.dto.email.EmailDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.CrearUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.EditarUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.InformacionUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.ItemUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.model.documents.Usuario;
+import co.edu.uniquindio.ShedulePro.model.enums.Cargo;
 import co.edu.uniquindio.ShedulePro.repositories.UsuarioRepo;
 import co.edu.uniquindio.ShedulePro.services.interfaces.UsuarioServicio;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.SecureRandom;
 import java.util.List;
@@ -119,6 +121,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     }
 
     @Override
+    @Transactional(readOnly = true)//Este metodo solo va a utilizar recurso para lectura
     public InformacionUsuarioDTO obtenerUsuario(String id) throws Exception {
         Usuario usuario = usuarioRepo.findById(id)
                 .orElseThrow(() -> new Exception("Usuario no encontrado."));
@@ -139,6 +142,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     @Override
     public List<ItemUsuarioDTO> listarUsuarios() throws Exception {
         return usuarioRepo.findAll().stream()
+                .filter(usuario -> usuario.getCargo().equals(Cargo.EMPLEADO))
                 .map(usuario -> new ItemUsuarioDTO(
                         usuario.getId(),
                         usuario.getNombre(),

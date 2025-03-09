@@ -1,8 +1,8 @@
 package co.edu.uniquindio.ShedulePro.Servicios;
 
 import co.edu.uniquindio.ShedulePro.Config.JWTUtils;
-import co.edu.uniquindio.ShedulePro.dto.LoginDTO;
-import co.edu.uniquindio.ShedulePro.dto.TokenDTO;
+import co.edu.uniquindio.ShedulePro.dto.usuario.LoginDTO;
+import co.edu.uniquindio.ShedulePro.dto.jws.TokenDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.CrearUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.EditarUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.InformacionUsuarioDTO;
@@ -30,11 +30,11 @@ public class UsuarioServicioTest {
     @Test
     void crearUsuarioTest() {
         CrearUsuarioDTO crearUsuarioDTO = new CrearUsuarioDTO(
-                "1234567890",
-                "Juan",
-                "Pérez",
-                "3111234567",
-                "barbelaezaguirre@gmail.com",
+                "1006688988",
+                "jhojan",
+                "Gil",
+                "3145326847",
+                "jhogillds@gmail.com",
                 Departamento.AMAZONAS,
                 Cargo.EMPLEADO,
                 LocalDateTime.of(2022, 1, 1, 10, 0)
@@ -97,8 +97,8 @@ public class UsuarioServicioTest {
     void iniciarSesionTest() {
 
         LoginDTO loginDTO = new LoginDTO(
-                "barbelaezaguirre@gmail.com",
-                "pxWsvy"
+                "jhogillds@gmail.com",
+                "ADRyOj"
         );
 
         // Se espera que no se lance ninguna excepción

@@ -1,7 +1,7 @@
 package co.edu.uniquindio.ShedulePro.services.interfaces;
 
-import co.edu.uniquindio.ShedulePro.dto.LoginDTO;
-import co.edu.uniquindio.ShedulePro.dto.TokenDTO;
+import co.edu.uniquindio.ShedulePro.dto.usuario.LoginDTO;
+import co.edu.uniquindio.ShedulePro.dto.jws.TokenDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.CrearUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.EditarUsuarioDTO;
 import co.edu.uniquindio.ShedulePro.dto.usuario.InformacionUsuarioDTO;

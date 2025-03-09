@@ -45,7 +45,6 @@ public class Usuario {
         this.fechaContratacion = fechaContratacion;
         this.departamento = departamento;
         this.cargo = cargo;
-        this.horarioSemana = horarioSemana;
 
     }
 
