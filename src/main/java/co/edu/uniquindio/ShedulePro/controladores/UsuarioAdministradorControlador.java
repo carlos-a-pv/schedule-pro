@@ -18,31 +18,31 @@ public class UsuarioAdministradorControlador {
 
     private final UsuarioServicio usuarioServicio;
 
-    @PostMapping("crear-empleado")
+    @PostMapping("/crear-empleado")
     public ResponseEntity<MensajeDTO> crearEmpleado(@Valid @RequestBody CrearUsuarioDTO usuarioDTO) throws Exception {
         usuarioServicio.crearUsuario(usuarioDTO);
         return ResponseEntity.ok( new MensajeDTO<>(false, "Empleado creado correctamente"));
     }
 
-    @PutMapping("editar-empleado")
+    @PutMapping("/editar-empleado")
     public ResponseEntity<MensajeDTO> editarEmpleado(@Valid @RequestBody EditarUsuarioDTO usuarioDTO) throws Exception {
         usuarioServicio.editarUsuario(usuarioDTO);
         return ResponseEntity.ok(new MensajeDTO<>(true, "Empleado editado correctamente"));
     }
 
-    @DeleteMapping("eliminar-empleado")
+    @DeleteMapping("/eliminar-empleado")
     public ResponseEntity<MensajeDTO> eliminarEmpleado(@Valid @RequestBody EliminarUsuarioDTO usuarioDTO) throws Exception {
         usuarioServicio.eliminarUsuario(usuarioDTO.id());
         return ResponseEntity.ok(new MensajeDTO<>(true, "Empleado eliminado correctamente"));
     }
 
-    @GetMapping ("obtener-empleado/{id}")
+    @GetMapping ("/obtener-empleado/{id}")
     public ResponseEntity<MensajeDTO<InformacionUsuarioDTO>> obtenerEmpleado(@PathVariable String id) throws Exception {
         InformacionUsuarioDTO info = usuarioServicio.obtenerUsuario(id);
         return ResponseEntity.ok(new MensajeDTO<>( false, info));
     }
 
-    @GetMapping("listar-todo")
+    @GetMapping("/listar-todo")
     public ResponseEntity<List<ItemUsuarioDTO>> listarUsuarios() throws Exception {
         List<ItemUsuarioDTO> usuarios = usuarioServicio.listarUsuarios();
         return ResponseEntity.ok(usuarios);
