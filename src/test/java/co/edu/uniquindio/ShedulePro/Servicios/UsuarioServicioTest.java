@@ -68,7 +68,7 @@ public class UsuarioServicioTest {
 
     @Test
     void eliminarUsuarioTest() {
-        String id = "67cde31da0c37b25cabcce98";
+        String id = "67d8bc0879939437e2915e53";
 
         assertDoesNotThrow(() -> {
             String respuesta = usuarioServicio.eliminarUsuario(id);
