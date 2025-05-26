@@ -12,4 +12,5 @@ public interface TurnoRepo extends MongoRepository<TurnoTrabajo, String> {
     boolean existsByFechaTurnoAndEmpleadoId(LocalDate fechaTurno, @NotBlank String s);
     List<TurnoTrabajo> findByFechaTurnoBeforeAndEstado(LocalDate fecha, EstadoTurno estado);
 
+    List<TurnoTrabajo> findAllByEstado(EstadoTurno estado);
 }

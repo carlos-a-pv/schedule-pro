@@ -42,6 +42,27 @@ public class EmailServicioImpl implements EmailServicio {
         }
 
     }
+    @Override
+    @Async
+    public void enviarCorreoConAdjunto(EmailDTO emailDTO, byte[] contenidoPDF, String nombreArchivo) throws Exception {
+        Email email = EmailBuilder.startingBlank()
+                .from(username)
+                .to(emailDTO.destinatario())
+                .withSubject(emailDTO.asunto())
+                .withHTMLText(emailDTO.cuerpo())
+                .withAttachment(nombreArchivo, contenidoPDF, "application/pdf")
+                .buildEmail();
+
+        try (Mailer mailer = MailerBuilder
+                .withSMTPServer(host, port, username, password)
+                .withTransportStrategy(TransportStrategy.SMTP_TLS)
+                .withDebugLogging(true)
+                .buildMailer()) {
+
+            mailer.sendMail(email);
+        }
+    }
+
 
 }
 
