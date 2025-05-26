@@ -107,7 +107,7 @@ public class TurnoTrabajoServicioimpl implements TurnoTrabajoServicio {
                 }).collect(Collectors.toList());
     }
 
-    //Metodo empleado
+    //Metodo listar turnos por empleado
     @Override
     public List<ItemTurnoTrabajoDTO> listarTurnosPorEmpleado(String idUsuario) throws Exception {
         if (!usuarioRepo.existsById(idUsuario)) {
