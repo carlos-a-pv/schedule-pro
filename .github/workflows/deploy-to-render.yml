@@ -30,5 +30,6 @@ jobs:
       - name: Hacer merge a la rama render
         run: |
           git fetch origin
-          git checkout master
-          git push origin master:render --force
+          git checkout render
+          git merge -X theirs origin/master --no-edit
+          git push origin render
