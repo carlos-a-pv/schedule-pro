@@ -29,7 +29,6 @@ jobs:
 
       - name: Hacer merge a la rama render
         run: |
-          git fetch origin render
-          git checkout render
-          git merge origin/master --no-edit --allow-unrelated-histories
-          git push origin render
+          git fetch origin
+          git checkout master
+          git push origin master:render --force
