@@ -96,7 +96,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
         if (!usuario.getCedula().equals(dto.cedula()) && usuarioRepo.existsByCedula(dto.cedula())) {
             throw new Exception("La cédula ya está registrada.");
-        }
+        }   
         if (!usuario.getEmail().equals(dto.email()) && usuarioRepo.existsByEmail(dto.email())) {
             throw new Exception("El correo electrónico ya está registrado.");
         }

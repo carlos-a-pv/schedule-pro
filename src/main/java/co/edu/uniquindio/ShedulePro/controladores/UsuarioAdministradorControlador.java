@@ -33,9 +33,9 @@ public class UsuarioAdministradorControlador {
         return ResponseEntity.ok(new MensajeDTO<>(false, "Empleado editado correctamente"));
     }
 
-    @DeleteMapping("/eliminar-empleado")
-    public ResponseEntity<MensajeDTO> eliminarEmpleado(@Valid @RequestBody EliminarUsuarioDTO usuarioDTO) throws Exception {
-        usuarioServicio.eliminarUsuario(usuarioDTO.id());
+    @DeleteMapping("/eliminar-empleado/{id}")
+    public ResponseEntity<MensajeDTO> eliminarEmpleado(@PathVariable String id) throws Exception {
+        usuarioServicio.eliminarUsuario(id);
         return ResponseEntity.ok(new MensajeDTO<>(false, "Empleado eliminado correctamente"));
     }
 
